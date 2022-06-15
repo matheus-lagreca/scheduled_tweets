@@ -1,9 +1,9 @@
 <h1>Sign up</h1>
 
-<%= form_with model: @user, url: sign_up_path do |form| %>
+<%= form_with model: @user, url: sign_up_path, local: true do |form| %>
 
   <% if @user.errors.any? %>
-    <div class="alert alert-danger">
+   <div class ="alert alert-danger">
      <% @user.errors.full_messages.each do |message| %>
         <div>
           <%= message %>
@@ -26,6 +26,6 @@
   </div>
 
   <div class="mb-3">
-   <%= form.submit "Sign Up", class: "btn btn-primary" %> 
+    <%= form.submit "Sign Up", class: "btn btn-primary", data: { turbo: false } %> 
    </div>
 <% end %>
